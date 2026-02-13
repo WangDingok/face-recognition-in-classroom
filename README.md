@@ -1,7 +1,3 @@
----
-description: 
----
-
 # Face Recognition Video Processor
 
 This project is a video-based face recognition system leveraging advanced Deep Learning techniques. The system integrates Face Detection, Face Embedding, and Face Recognition to identify individuals in videos, supporting both real-time and offline processing.
