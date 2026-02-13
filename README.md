@@ -2,7 +2,7 @@
 
 This project is a video-based face recognition system leveraging advanced Deep Learning techniques. The system integrates Face Detection, Face Embedding, and Face Recognition to identify individuals in videos, supporting both real-time and offline processing.
 
-## 🚀 Key Features
+## Key Features
 
 - **Face Detection**: Uses YOLOv8-Face model for fast and accurate face detection.
 - **Feature Extraction**: Utilizes InsightFace (Buffalo_L) to generate face embedding vectors.
@@ -18,7 +18,7 @@ This project is a video-based face recognition system leveraging advanced Deep L
   - Draws bounding boxes and identified names on the video.
   - Displays detailed FPS for each stage (Detect, Embed, Query).
 
-## 🛠️ Installation Requirements
+## Installation Requirements
 
 Ensure Python is installed (Python 3.8 or higher recommended).
 
@@ -33,7 +33,7 @@ pip install opencv-python numpy torch pandas scikit-learn insightface onnxruntim
 
 *Note: If you do not have a GPU, install `onnxruntime` instead of `onnxruntime-gpu`.*
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 .
@@ -53,7 +53,7 @@ pip install opencv-python numpy torch pandas scikit-learn insightface onnxruntim
 └── requirements.txt           # Project dependencies
 ```
 
-## 📖 Usage Guide
+## Usage Guide
 
 ### 1. Prepare Data
 You need the following data files:
@@ -98,14 +98,14 @@ You can fine-tune recognition parameters for optimal results:
 - `label_strategy`: Label assignment strategy (`soft` or `hard`).
 - `top_k`: Number of nearest vectors to search in FAISS.
 
-## 🧠 Module Details
+## Module Details
 
 - **`FaceIndexDatabase`**: Wrapper for FAISS, supports saving/loading and querying vectors. Supports both L2 distance and Cosine similarity.
 - **`FaceEmbedder`**: Uses `insightface` to vectorize faces. Includes a mechanism to filter low-quality faces based on vector norm.
 - **`FaceRecognizer`**: Manages the recognition flow, combining results from FAISS and tracking logic to provide the most stable label for each track ID.
 - **`LabelResolver`**: Makes the final label decision based on the list of search results from FAISS (noise handling, voting).
 
-## ⚠️ Notes
+## Notes
 
 - Ensure paths to model and data files are correct.
 - If you encounter errors related to CUDA/GPU, check your PyTorch and NVIDIA Driver installation.
