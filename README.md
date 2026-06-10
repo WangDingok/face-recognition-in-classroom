@@ -24,18 +24,42 @@ This project is a video-based face recognition system leveraging advanced Deep L
 
 ## Installation Requirements
 
-Ensure Python is installed (Python 3.8 or higher recommended).
+Ensure **Python 3.10+** is installed.
 
-### Install Dependencies
+This repo ships with `pyproject.toml` and `uv.lock`, so the recommended way to install and run is using **uv**.
 
-You need to install the following libraries:
+### Install uv (one-time)
 
 ```bash
-pip install opencv-python numpy torch pandas scikit-learn insightface onnxruntime-gpu faiss-cpu
-# or faiss-gpu if you want to use GPU for FAISS
+# Windows (PowerShell)
+powershell -ExecutionPolicy Bypass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# macOS/Linux
+# curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-*Note: If you do not have a GPU, install `onnxruntime` instead of `onnxruntime-gpu`.*
+### Install dependencies
+
+From the repo root (`face_recognition_all/`):
+
+```bash
+uv sync
+```
+
+### Run
+
+```bash
+uv run python main.py \
+  --input_video_path "path/to/video.mp4" \
+  --output_video_path "result.mp4" \
+  --face_detector_model_path "yolo_face/yolov8m-face.pt" \
+  --face_index_path "path/to/face.index" \
+  --face_label_path "path/to/face_labels.pkl" \
+  --id_to_name_path "path/to/id2name.json" \
+  --device "cuda"
+```
+
+*Note: If you do not have a GPU, set `--device cpu` and use a CPU ONNXRuntime build if needed.*
 
 ## Project Structure
 
