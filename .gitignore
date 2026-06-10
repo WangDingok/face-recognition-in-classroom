@@ -65,6 +65,8 @@ datasets/
 # Output files
 result.mp4
 output*.mp4
+output/attendance/
+output/attendance_images/
 *.log
 
 # Jupyter Notebooks (optional, sometimes we want to keep them, sometimes not)

@@ -1,0 +1,59 @@
+[project]
+name = "face-recognition-all"
+version = "1.0.0"
+description = "Face Recognition system using YOLO, InsightFace, and FAISS"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    {name = "Author", email = "author@example.com"}
+]
+dependencies = [
+    "opencv-python>=4.10.0",
+    "numpy>=1.24.0",
+    "torch>=2.0.0",
+    "torchvision>=0.15.0", 
+    "dill>=0.3.0",
+    "lap>=0.5.12",       
+    "pandas>=2.0.0",
+    "scikit-learn>=1.3.0",
+    "insightface>=0.7.3",
+    "onnxruntime-gpu>=1.16.0",
+    "faiss-cpu>=1.7.4",
+    "ultralytics>=8.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "isort>=5.12.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["core*", "config*", "utils*", "yolo_face*"]
+
+[tool.uv]
+required-version = ">=0.11"
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[[tool.uv.index]]
+name = "pytorch-cuda"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cuda" }
+torchvision = { index = "pytorch-cuda" }
